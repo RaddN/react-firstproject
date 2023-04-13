@@ -34,11 +34,9 @@ app.post("/login", (req, res) => {
 });
 User.find().then((data) => console.log(data));
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("../firstproject/build"));
+  app.use(express.static("firstproject/build"));
   app.get("*", (req, res) => {
-    res.sendFile(
-      path.resolve(_dirname, "../firstproject", "build", "index.html")
-    );
+    res.sendFile(path.resolve(_dirname, "firstproject", "build", "index.html"));
   });
 }
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
